@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Clean Outlook (Ad Blocker)",
+  "version": "1.0.0",
+  "description": "Removes ads from Outlook on the web, including the empty row the sponsored email leaves behind.",
+  "permissions": ["storage"],
+  "action": { "default_popup": "popup.html", "default_title": "Clean Outlook" },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://outlook.live.com/*",
+        "https://outlook.office.com/*",
+        "https://outlook.office365.com/*"
+      ],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
